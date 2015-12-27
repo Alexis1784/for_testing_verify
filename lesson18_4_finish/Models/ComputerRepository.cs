@@ -31,6 +31,11 @@ namespace lesson18_4_finish.Models
            
         }
 
+        public void Create2(string st)
+        { 
+            
+        }
+
         public void Update(Computer c)
         {
             db.Entry(c).State = EntityState.Modified;

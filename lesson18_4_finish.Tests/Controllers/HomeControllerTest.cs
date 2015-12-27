@@ -26,7 +26,7 @@ namespace lesson18_4_finish.Tests.Controllers
             RedirectToRouteResult result = controller.Create(comp) as RedirectToRouteResult;
 
             // Assert
-            mock.Verify(a => a.Create(comp));
+            mock.Verify(a => a.Create(comp), Times.Exactly(1));
             mock.Verify(a => a.Save());
         }
         [TestMethod]

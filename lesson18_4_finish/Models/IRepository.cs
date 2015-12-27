@@ -12,6 +12,7 @@ namespace lesson18_4_finish.Models
         Computer GetComputer(int id);
         void Create(Computer item);
         void Create();
+        void Create2(string st);
         void Update(Computer item);
         void Delete(int id);
         void Save();
