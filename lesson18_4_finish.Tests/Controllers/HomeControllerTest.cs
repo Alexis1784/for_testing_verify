@@ -28,19 +28,6 @@ namespace lesson18_4_finish.Tests.Controllers
             // Assert
             Assert.IsNotNull(result.Model);
         }  
-        
-        [TestMethod]
-        public void Index()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
 
         [TestMethod]
         public void About()

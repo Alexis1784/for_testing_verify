@@ -22,7 +22,8 @@ namespace lesson18_4_finish.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var model = repo.GetComputerList();
+            return View(model);
         }
         protected override void Dispose(bool disposing)
         {
