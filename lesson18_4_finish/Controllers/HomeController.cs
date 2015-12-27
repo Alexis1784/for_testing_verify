@@ -16,7 +16,9 @@ namespace lesson18_4_finish.Controllers
         [HttpPost]
         public ActionResult Create(Computer c)
         {
-            return View();
+            if (ModelState.IsValid)
+            { }
+            return View("Create");
         }
 
         IRepository repo;
