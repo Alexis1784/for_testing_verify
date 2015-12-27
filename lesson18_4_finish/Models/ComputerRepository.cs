@@ -26,6 +26,10 @@ namespace lesson18_4_finish.Models
         {
             db.Computers.Add(c);
         }
+        public void Create()
+        {
+           
+        }
 
         public void Update(Computer c)
         {
