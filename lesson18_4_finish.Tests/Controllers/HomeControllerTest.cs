@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using lesson18_4_finish;
 using lesson18_4_finish.Controllers;
+using Moq;
+using lesson18_4_finish.Models;
 
 namespace lesson18_4_finish.Tests.Controllers
 {
@@ -16,14 +18,16 @@ namespace lesson18_4_finish.Tests.Controllers
         public void IndexViewModelNotNull()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetComputerList()).Returns(new List<Computer>());
+            HomeController controller = new HomeController(mock.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result.Model);
-        }
+        }  
         
         [TestMethod]
         public void Index()
