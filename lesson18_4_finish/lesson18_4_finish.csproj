@@ -166,6 +166,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CompContext.cs" />
     <Compile Include="Models\Computer.cs" />
+    <Compile Include="Models\ComputerRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
