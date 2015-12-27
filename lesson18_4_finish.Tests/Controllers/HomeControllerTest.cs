@@ -27,7 +27,24 @@ namespace lesson18_4_finish.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result.Model);
-        }  
+        }
+
+        [TestMethod]
+        public void IndexViewBagMessage()
+        {
+            // Arrange
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetComputerList()).Returns(new List<Computer>() { new Computer() });
+            HomeController controller = new HomeController(mock.Object);
+            string expected = "В базе данных 1 объект";
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+            string actual = result.ViewBag.Message as string;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        } 
 
         [TestMethod]
         public void About()

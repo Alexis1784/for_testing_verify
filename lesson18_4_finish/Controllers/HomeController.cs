@@ -23,6 +23,8 @@ namespace lesson18_4_finish.Controllers
         public ActionResult Index()
         {
             var model = repo.GetComputerList();
+            if (model.Count > 0)
+                ViewBag.Message = String.Format("В базе данных {0} объект", model.Count);
             return View(model);
         }
         protected override void Dispose(bool disposing)
