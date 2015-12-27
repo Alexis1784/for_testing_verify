@@ -17,7 +17,11 @@ namespace lesson18_4_finish.Controllers
         public ActionResult Create(Computer c)
         {
             if (ModelState.IsValid)
-            { return RedirectToAction("Index"); }
+            {
+                repo.Create(c);
+                repo.Save();
+                return RedirectToAction("Index"); 
+            }
             return View("Create");
         }
 
