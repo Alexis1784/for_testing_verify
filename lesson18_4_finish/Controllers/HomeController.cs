@@ -9,6 +9,16 @@ namespace lesson18_4_finish.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Computer c)
+        {
+            return View();
+        }
+
         IRepository repo;
 
         public HomeController(IRepository r)
