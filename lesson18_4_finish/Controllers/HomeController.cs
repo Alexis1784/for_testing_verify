@@ -11,6 +11,7 @@ namespace lesson18_4_finish.Controllers
     {
         public ActionResult Create()
         {
+            
             return View();
         }
         [HttpPost]
@@ -18,6 +19,7 @@ namespace lesson18_4_finish.Controllers
         {
             if (ModelState.IsValid)
             {
+                repo.Create2("10011");
                 repo.Create(c);
                 repo.Save();
                 return RedirectToAction("Index"); 
@@ -34,10 +36,12 @@ namespace lesson18_4_finish.Controllers
         public HomeController()
         {
             repo = new ComputerRepository();
+            
         }
 
         public ActionResult Index()
         {
+            
             var model = repo.GetComputerList();
             if (model.Count > 0)
                 ViewBag.Message = String.Format("В базе данных {0} объект", model.Count);

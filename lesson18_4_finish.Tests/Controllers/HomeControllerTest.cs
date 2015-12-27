@@ -28,6 +28,7 @@ namespace lesson18_4_finish.Tests.Controllers
             // Assert
             mock.Verify(a => a.Create(comp), Times.Exactly(1));
             mock.Verify(a => a.Save());
+            mock.Verify(a => a.Create2(It.IsRegex("^1001")));
         }
         [TestMethod]
         public void CreatePostAction_RedirectToIndexView()
