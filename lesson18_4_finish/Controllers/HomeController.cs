@@ -9,10 +9,25 @@ namespace lesson18_4_finish.Controllers
 {
     public class HomeController : Controller
     {
-        CompContext db = new CompContext();
+        IRepository repo;
+
+        public HomeController(IRepository r)
+        {
+            repo = r;
+        }
+        public HomeController()
+        {
+            repo = new ComputerRepository();
+        }
+
         public ActionResult Index()
         {
-            return View(db.Computers);
+            return View();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            repo.Dispose();
+            base.Dispose(disposing);
         }
 
         public ActionResult About()
