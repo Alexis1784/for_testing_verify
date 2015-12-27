@@ -13,6 +13,19 @@ namespace lesson18_4_finish.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
+        public void IndexViewModelNotNull()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result.Model);
+        }
+        
+        [TestMethod]
         public void Index()
         {
             // Arrange
