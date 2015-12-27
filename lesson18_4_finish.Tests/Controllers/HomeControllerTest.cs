@@ -15,6 +15,21 @@ namespace lesson18_4_finish.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
+        public void CreatePostAction_SaveModel()
+        { 
+            // Arrange 
+            var mock = new Mock<IRepository>();
+            HomeController controller = new HomeController(mock.Object);
+            Computer comp = new Computer();
+
+            // Act
+            RedirectToRouteResult result = controller.Create(comp) as RedirectToRouteResult;
+
+            // Assert
+            mock.Verify(a => a.Create(comp));
+            mock.Verify(a => a.Save());
+        }
+        [TestMethod]
         public void CreatePostAction_RedirectToIndexView()
         {
             // arrange
