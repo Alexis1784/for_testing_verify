@@ -15,6 +15,22 @@ namespace lesson18_4_finish.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
+        public void CreatePostAction_ModelError()
+        {
+            // arrange
+            string expected = "Create";
+            var mock = new Mock<IRepository>();
+            Computer comp = new Computer();
+            HomeController controller = new HomeController(mock.Object);
+            controller.ModelState.AddModelError("Name", "Название модели не установлено");
+            // act
+            ViewResult result = controller.Create(comp) as ViewResult;
+            // assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result.ViewName);
+        }
+        
+        [TestMethod]
         public void IndexViewModelNotNull()
         {
             // Arrange
