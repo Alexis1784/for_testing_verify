@@ -15,6 +15,22 @@ namespace lesson18_4_finish.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
+        public void CreatePostAction_RedirectToIndexView()
+        {
+            // arrange
+            string expected = "Index";
+            var mock = new Mock<IRepository>();
+            Computer comp = new Computer();
+            HomeController controller = new HomeController(mock.Object);
+            // act
+            RedirectToRouteResult result = controller.Create(comp) as RedirectToRouteResult;
+
+            // assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result.RouteValues["action"]);
+        }
+        
+        [TestMethod]
         public void CreatePostAction_ModelError()
         {
             // arrange
