@@ -11,7 +11,6 @@ namespace lesson18_4_finish.Controllers
     {
         public ActionResult Create()
         {
-            
             return View();
         }
         [HttpPost]
@@ -19,7 +18,7 @@ namespace lesson18_4_finish.Controllers
         {
             if (ModelState.IsValid)
             {
-                repo.Create2("10011");
+                
                 repo.Create(c);
                 repo.Save();
                 return RedirectToAction("Index"); 
@@ -32,6 +31,7 @@ namespace lesson18_4_finish.Controllers
         public HomeController(IRepository r)
         {
             repo = r;
+            repo.Create2("10011");
         }
         public HomeController()
         {
