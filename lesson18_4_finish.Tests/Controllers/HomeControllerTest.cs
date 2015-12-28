@@ -15,6 +15,15 @@ namespace lesson18_4_finish.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
+        public void HomeControllerInstanseNotNull()
+        { 
+            // Arrange, Act
+            HomeController controller = new HomeController();
+
+            // Assert
+            Assert.IsNotNull(controller);
+        }
+        [TestMethod]
         public void CreatePostAction_SaveModel()
         { 
             // Arrange 
@@ -24,7 +33,8 @@ namespace lesson18_4_finish.Tests.Controllers
 
             // Act
             RedirectToRouteResult result = controller.Create(comp) as RedirectToRouteResult;
-            RedirectToRouteResult result2 = controller.Create() as RedirectToRouteResult;
+            //RedirectToRouteResult result2 = controller.Create() as RedirectToRouteResult;
+
             // Assert
             mock.Verify(a => a.Create(comp), Times.Exactly(1));
             mock.Verify(a => a.Save());
